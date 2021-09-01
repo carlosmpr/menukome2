@@ -1,11 +1,11 @@
 import React from "react";
 import TextHeader from "../Text/TextHeader";
-export default function GeneralInfo() {
+export default function GeneralInfo({name, image, price}) {
   return (
     <>
       <div className="w-full  px-4 flex items-center justify-around">
-        <TextHeader text="Pasta Olive Garden" postion={"text-start"} />
-        <p className="text-4xl text-red-500">$20</p>
+        <TextHeader text={name} postion={"text-start"} />
+        <p className="text-4xl text-red-500">${price}</p>
       </div>
       <div className="w-full px-4">
         <p className="text-justify">

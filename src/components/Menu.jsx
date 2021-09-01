@@ -1,18 +1,28 @@
 import React from 'react'
 import MenuItems from './MenuItems/MenuItems'
-import fork from '../assets/icons/fork.svg'
-import salad from '../assets/icons/salad.svg'
-import meat from '../assets/icons/meat.svg'
-import dessert from '../assets/icons/dessert.svg'
-import drink from '../assets/icons/drink.svg'
+import {ReactComponent as ForkIcon} from '../assets/icons/fork.svg'
+import {ReactComponent as SaladIcon} from '../assets/icons/salad.svg'
+import {ReactComponent as SteakIcon} from '../assets/icons/meat.svg'
+import {ReactComponent as DessertIcon} from '../assets/icons/dessert.svg'
+import {ReactComponent as DrinkIcon} from '../assets/icons/drink.svg'
 export default function Menu() {
     return (
         <div className="w-full h-24 bg-red-400 flex rounded-t-3xl items-center  justify-evenly fixed bottom-0 shadow-2xl">
-            <MenuItems image={fork} text={"Main"}/>
-            <MenuItems image={salad} text={"Salad"}/>
-            <MenuItems image={meat} text={"Steak"}/>
-            <MenuItems image={dessert} text={"Dessert"}/>
-            <MenuItems image={drink} text={"Drink"}/>
+            <MenuItems text={"Main"}>
+                <ForkIcon className="w-10 h-10" />
+                </MenuItems>
+            <MenuItems  text={"Salad"}>
+            <SaladIcon className="w-10 h-10" />
+                </MenuItems>
+            <MenuItems text={"Steak"}>
+            <SteakIcon className="w-10 h-10" />
+                </MenuItems>
+            <MenuItems  text={"Dessert"}>
+            <DessertIcon className="w-10 h-10" />
+                </MenuItems>
+            <MenuItems  text={"Drink"}>
+            <DrinkIcon className="w-10 h-10" />
+                </MenuItems>
            
         </div>
     )

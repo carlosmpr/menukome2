@@ -15,11 +15,6 @@ export default function Welcome() {
         <TextHeader text="User Favorites" postion="text-start"/>
         <MiniSlider />
         <InformationCard />
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
       </div>
     )
 }

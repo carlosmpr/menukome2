@@ -4,6 +4,7 @@ import TextHeader from '../components/Text/TextHeader'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 import { setData} from '../features/counter/counterSlice'
+import Search from '../components/Search'
 const width = "w-1/2"
 const details = true
 export default function MenuInfo() {
@@ -11,6 +12,7 @@ export default function MenuInfo() {
   const menuSelected = useSelector(state=> state.counter.menuSelected)
   const data = useSelector(state=> state.counter.data)
   const [loading, setLoading] = useState(false)
+  const [search , setSearch] = useState('')
   useEffect(() => {
     (async function() {
       try {
@@ -36,12 +38,19 @@ export default function MenuInfo() {
   if(!data.length >0){
     return <p>No menu found</p>
   }
-    return (
+
+  const filterData = () => (data.filter( newData => newData.name.toLowerCase().includes(search.toLowerCase())  ))
+   
+  console.log(filterData())
+  return (
         <>
         <TextHeader text={menuSelected} />
+        <Search setSearch={setSearch} search={search}/>
         <div className="w-full flex flex-1 space-y-4 flex-wrap">
-          {data.map( food => <MiniSlide w={width} details={details} {...food}/>)}           
+          {filterData().map( food => <MiniSlide w={width} details={details} {...food}/>)}           
       </div>
       </>
     )
 }
+
+

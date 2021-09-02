@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Slide from "./Slide/Slide";
 import ReactSwipe from "react-swipe";
 import SlideDots from "./Slide/SlideDots";
-import {useDispatch} from 'react-redux'
+import { useDispatch } from "react-redux";
 import { setSliderIndex } from "../features/counter/counterSlice";
 
 export default function Slider({ plates }) {
   const [element, setElement] = useState(null);
-   const dispatch = useDispatch()
+  const dispatch = useDispatch();
   let reactSwipeEl;
   let platesObject = null;
 
@@ -15,7 +15,6 @@ export default function Slider({ plates }) {
     platesObject = plates.map((plate) => JSON.parse(plate));
   }
 
- 
   if (!platesObject) {
     return <p>Loading...</p>;
   }
@@ -56,9 +55,9 @@ export default function Slider({ plates }) {
         ></i>
       </div>
 
-
-{element ? <SlideDots element={element} dataObject={platesObject}/> : null}
-     
+      {element ? (
+        <SlideDots element={element} dataObject={platesObject} />
+      ) : null}
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 import { setData} from '../features/counter/counterSlice'
 import Search from '../components/Search'
+import InfoBanner from '../components/cards/InfoBanner'
 const width = "w-1/2"
 const details = true
 export default function MenuInfo() {
@@ -41,11 +42,14 @@ export default function MenuInfo() {
 
   const filterData = () => (data.filter( newData => newData.name.toLowerCase().includes(search.toLowerCase())  ))
    
-  console.log(filterData())
+  console.log(data)
   return (
         <>
+        
         <TextHeader text={menuSelected} />
         <Search setSearch={setSearch} search={search}/>
+
+        <InfoBanner />
         <div className="w-full flex flex-1 space-y-4 flex-wrap">
           {filterData().map( food => <MiniSlide w={width} details={details} {...food}/>)}           
       </div>

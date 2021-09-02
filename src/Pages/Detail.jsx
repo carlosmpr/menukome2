@@ -11,6 +11,7 @@ import {useSelector} from 'react-redux'
 export default function Detail() {
   const detail = useSelector(state => state.counter.detailsSelected)
   const [detailData, setDetailData] = useState(null)
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
     (async function() {
       try {
@@ -20,6 +21,7 @@ export default function Detail() {
               }
           );
           setDetailData(response.data.body.Items[0])
+          setLoading(true)
           
           // dispatch(setData(response.data.body.Items))
       } catch (e) {
@@ -29,10 +31,12 @@ export default function Detail() {
     
   }, [detail])
 
-
+if(!loading){
+  return <p>Loading....</p>
+}
  
   if(!detailData){
-    return<p>Loading...</p>
+    return<p>No Plates Found</p>
   }
 
 

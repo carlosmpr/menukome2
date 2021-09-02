@@ -8,7 +8,6 @@ let platesObject;
 if(plates){
   platesObject = plates.map(plate => JSON.parse(plate))
 }
-  console.log("Similar plates",  platesObject )
 
    const data = () => {
      let newArray =[]

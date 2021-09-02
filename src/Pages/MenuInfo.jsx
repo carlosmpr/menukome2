@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import MiniSlide from '../components/Slide/MiniSlide'
 import TextHeader from '../components/Text/TextHeader'
 import { useSelector, useDispatch } from 'react-redux'
@@ -10,6 +10,7 @@ export default function MenuInfo() {
  const dispatch = useDispatch()
   const menuSelected = useSelector(state=> state.counter.menuSelected)
   const data = useSelector(state=> state.counter.data)
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
     (async function() {
       try {
@@ -20,6 +21,7 @@ export default function MenuInfo() {
           );
           
           dispatch(setData(response.data.body.Items))
+          setLoading(true)
       } catch (e) {
           console.error(e);
       }
@@ -27,10 +29,12 @@ export default function MenuInfo() {
     
   }, [menuSelected])
 
-  console.log(data)
 
-  if(!data.length >0){
+  if(!loading){
     return <p>Loading....</p>
+  }
+  if(!data.length >0){
+    return <p>No menu found</p>
   }
     return (
         <>

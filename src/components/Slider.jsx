@@ -1,8 +1,18 @@
 import React from "react";
 import Slide from "./Slide/Slide";
 import ReactSwipe from "react-swipe";
-export default function Slider() {
+export default function Slider({plates}) {
   let reactSwipeEl;
+  let platesObject = null;
+
+  if(plates){
+    platesObject = plates.map(plate => JSON.parse(plate))
+  }
+
+  console.log(platesObject)
+  if(!platesObject){
+    return <p>Loading...</p>
+  }
   return (
     <>
       <div className="w-full flex items-center justify-evenly">
@@ -12,15 +22,10 @@ export default function Slider() {
           swipeOptions={{ continuous: false }}
           ref={(el) => (reactSwipeEl = el)}
         >
-          <div>
-            <Slide />
-          </div>
-          <div>
-            <Slide />
-          </div>
-          <div>
-            <Slide />
-          </div>
+          {platesObject.map(food =><div>
+            <Slide {...food}/>
+          </div> )}
+ 
         </ReactSwipe>
         <i className="fa text-2xl fa-chevron-right" aria-hidden="true"></i>
       </div>

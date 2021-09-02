@@ -1,20 +1,49 @@
-import React from 'react'
-import TextHeader from '../components/Text/TextHeader'
+import React,{useEffect}from 'react'
 import InformationCard from '../components/cards/InformationCard'
 import Search from '../components/Search'
 import Slider from '../components/Slider'
 import MiniSlider from '../components/MiniSlider'
+import axios from 'axios'
+import {useSelector, useDispatch} from 'react-redux'
+import { todaysOffer } from '../features/counter/counterSlice'
+import TodaysSpecial from '../components/Text/TodaysSpecial'
+import TextHeader from '../components/Text/TextHeader'
+
 export default function Welcome() {
+  const date = new Date(Date.now())
+  const offer = useSelector(state => state.counter.offer)
+ const dispatch = useDispatch()
+  useEffect(() => {
+    (async function() {
+      try {
+          const response = await axios.post(
+              ` https://xmazrc1yvj.execute-api.us-east-1.amazonaws.com/Dev/menu/offer`,{
+                search: date.getDay()
+              }
+          );
+        
+      dispatch(todaysOffer(response.data.body.Items[0]))
+      } catch (e) {
+          console.error(e);
+      }
+  })()
+  }, [])
+
+   if(offer.length === 0){
+     return <p>Loadding...</p>
+   }
+
+console.log(offer)
     return (
         <div className="w-full flex-1 space-y-4">
-        <TextHeader text="Todays Plate" />
-        <InformationCard />
+       <TodaysSpecial day={offer.category}/>
+        <InformationCard today={JSON.parse(offer.today)}/>
         <Search />
-        <TextHeader text="Favorites" postion="text-start"/>
-        <Slider />
+        <TextHeader text="Specials" postion="text-start"/>
+        <Slider plates={offer.special.split(';')}/>
         <TextHeader text="User Favorites" postion="text-start"/>
-        <MiniSlider />
-        <InformationCard />
+        <MiniSlider plates={offer.favorites.split(';')}/>
+        <InformationCard today={JSON.parse(offer.combo)}/>
       </div>
     )
 }

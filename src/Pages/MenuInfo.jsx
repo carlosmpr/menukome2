@@ -7,6 +7,8 @@ import { setData} from '../features/counter/counterSlice'
 import Search from '../components/Search'
 import InfoBanner from '../components/cards/InfoBanner'
 import { useSpring, animated } from 'react-spring'
+import Loading from '../components/Loading'
+import ErrorNotFount from '../components/ErrorNotFount'
 const width = "w-1/2"
 const details = true
 export default function MenuInfo() {
@@ -37,10 +39,10 @@ export default function MenuInfo() {
 
 
   if(!loading){
-    return <p>Loading....</p>
+    return <Loading />
   }
   if(!data.length >0){
-    return <p>No menu found</p>
+    return <ErrorNotFount />
   }
 
   const filterData = () => (data.filter( newData => newData.name.toLowerCase().includes(search.toLowerCase())  ))

@@ -9,7 +9,7 @@ import { todaysOffer } from '../features/counter/counterSlice'
 import TodaysSpecial from '../components/Text/TodaysSpecial'
 import TextHeader from '../components/Text/TextHeader'
 import InfoBanner from '../components/cards/InfoBanner'
-
+import Loading from '../components/Loading'
 export default function Welcome() {
   const date = new Date(Date.now())
   const offer = useSelector(state => state.counter.offer)
@@ -31,7 +31,7 @@ export default function Welcome() {
   }, [])
 
    if(offer.length === 0){
-     return <p>Loadding...</p>
+     return <Loading />
    }
 
 console.log(offer)

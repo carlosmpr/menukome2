@@ -7,7 +7,9 @@ import InformationCard from "../components/cards/InformationCard";
 import SidesDishes from "../components/DetailContent/SidesDishes";
 import OtherPlates from "../components/DetailContent/OtherPlates";
 import axios from "axios";
+import Loading from "../components/Loading";
 import {useSelector} from 'react-redux'
+import ErrorNotFount from "../components/ErrorNotFount";
 export default function Detail() {
   window.scrollTo(0,0)
   const detail = useSelector(state => state.counter.detailsSelected)
@@ -33,11 +35,11 @@ export default function Detail() {
   }, [detail])
 
 if(!loading){
-  return <p>Loading....</p>
+  return <Loading />
 }
  
   if(!detailData){
-    return<p>No Plates Found</p>
+    return <ErrorNotFount />
   }
 
 

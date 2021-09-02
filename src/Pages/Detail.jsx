@@ -9,6 +9,7 @@ import OtherPlates from "../components/DetailContent/OtherPlates";
 import axios from "axios";
 import {useSelector} from 'react-redux'
 export default function Detail() {
+  window.scrollTo(0,0)
   const detail = useSelector(state => state.counter.detailsSelected)
   const [detailData, setDetailData] = useState(null)
   const [loading, setLoading] = useState(false)

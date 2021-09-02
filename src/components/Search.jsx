@@ -1,9 +1,9 @@
 import React,{useState} from "react";
-
+import { useSpring, animated } from 'react-spring'
 export default function Search({setSearch, search}) {
-
+  const props = useSpring({ to: { opacity: 1, x:0 }, from: { opacity: 0 , x:-10},  delay: 500 })
   return (
-    <div className="w-full  h-14 mb-12">
+    <animated.div className="w-full  h-14 mb-12" style={props}>
       <input
       type="text"
       value={search}
@@ -15,6 +15,6 @@ export default function Search({setSearch, search}) {
           e.target.blur();
         }}}
       ></input>
-    </div>
+    </animated.div>
   );
 }

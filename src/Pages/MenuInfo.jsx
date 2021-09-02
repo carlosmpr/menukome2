@@ -6,9 +6,12 @@ import axios from 'axios'
 import { setData} from '../features/counter/counterSlice'
 import Search from '../components/Search'
 import InfoBanner from '../components/cards/InfoBanner'
+import { useSpring, animated } from 'react-spring'
 const width = "w-1/2"
 const details = true
 export default function MenuInfo() {
+  window.scrollTo(0,0)
+  const props = useSpring({ to: { opacity: 1, y:0 }, from: { opacity: 0 , y:20},  delay: 500 })
  const dispatch = useDispatch()
   const menuSelected = useSelector(state=> state.counter.menuSelected)
   const data = useSelector(state=> state.counter.data)
@@ -50,9 +53,9 @@ export default function MenuInfo() {
         <Search setSearch={setSearch} search={search}/>
 
         <InfoBanner />
-        <div className="w-full flex flex-1 space-y-4 flex-wrap">
+        <animated.div className="w-full flex flex-1 space-y-4 flex-wrap" style={props}>
           {filterData().map( food => <MiniSlide w={width} details={details} {...food}/>)}           
-      </div>
+      </animated.div>
       </>
     )
 }

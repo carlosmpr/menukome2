@@ -3,7 +3,6 @@ import MiniFoodCard from "../cards/MiniFoodCard";
 import FoodReaction from "../FoodReactions/FoodReaction";
 import {useDispatch} from 'react-redux'
 import { detailSelect } from "../../features/counter/counterSlice";
-
 export default function MiniSlide({ w = "w-full", details , name, image, price,likes,recomended }) {
   const dispatch = useDispatch()
   return (

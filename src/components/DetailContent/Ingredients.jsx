@@ -2,10 +2,11 @@ import React from 'react'
 import ReactSwipe from "react-swipe";
 import TextHeader from '../Text/TextHeader';
 import Badge from '../cards/Badge';
+import { useSpring, animated } from 'react-spring'
 export default function Ingredients({ingredients}) {
     let reactSwipeEl;
 
-
+    const props = useSpring({ to: { opacity: 1, x:0 }, from: { opacity: 0 , x:-10},  delay: 500 })
  const data = () => {
      let newArray =[]
     let magicArry = []
@@ -29,7 +30,7 @@ export default function Ingredients({ingredients}) {
  }
     console.log(data())
     return (
-        <div className="w-full px-4">
+        <animated.div className="w-full px-4" style={props}>
         <TextHeader text={"Ingredients"} postion="text-start"/>
         <ReactSwipe
               chiclassName="w-full"
@@ -42,6 +43,6 @@ export default function Ingredients({ingredients}) {
             
               
                 </ReactSwipe>
-        </div>
+        </animated.div>
     )
 }

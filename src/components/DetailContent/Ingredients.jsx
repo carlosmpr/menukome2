@@ -4,8 +4,8 @@ import TextHeader from '../Text/TextHeader';
 import Badge from '../cards/Badge';
 export default function Ingredients({ingredients}) {
     let reactSwipeEl;
- let array = [ <div className="flex w-full justify-evenly">,</div>]
-console.log(ingredients)
+
+
  const data = () => {
      let newArray =[]
     let magicArry = []

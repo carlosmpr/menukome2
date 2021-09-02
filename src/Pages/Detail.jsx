@@ -29,17 +29,22 @@ export default function Detail() {
     
   }, [detail])
 
+
+ 
   if(!detailData){
     return<p>Loading...</p>
   }
+
+
+  console.log(detailData.similar)
   return (
     <div className="w-full h-4/5  flex-1">
       <div className="w-full  flex-1 space-y-4 ">
         <ImageContent image={detail.image} />
         <GeneralInfo name={detail.name} price={detail.price} image={detail.image}/>
         <Ingredients ingredients={detailData.ingredients.split(",")}/>
-        <SidesDishes />
-       <OtherPlates />
+        <SidesDishes sides={detailData.sides.split(';')} drinks={detailData.drinks.split(';')}/>
+       <OtherPlates plates={detailData.similar.split(';')}/>
 
         <div className="w-full p-4">
         <InformationCard />

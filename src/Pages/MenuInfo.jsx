@@ -40,9 +40,7 @@ export default function MenuInfo() {
         <>
         <TextHeader text={menuSelected} />
         <div className="w-full flex flex-1 space-y-4 flex-wrap">
-
           {data.map( food => <MiniSlide w={width} details={details} {...food}/>)}           
-        
       </div>
       </>
     )

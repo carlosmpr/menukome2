@@ -9,7 +9,7 @@ export default function MiniSlide({ w = "w-full", details , name, image, price,l
     <div className={`${w} flex flex-col justify-center items-center `} onClick={()=> dispatch(detailSelect({name:name, price:price, image:image}))}>
       <MiniFoodCard image={image} />
       {details ? <FoodReaction likes={likes} recomended={recomended}/> : null}
-      <p className="font-bold text-sm text-center">{name}</p>
+      <p className="font-bold text-sm text-center capitalize">{name}</p>
       <p className="font-bold text-red-600 text-center"> ${price}</p>
     </div>
   );

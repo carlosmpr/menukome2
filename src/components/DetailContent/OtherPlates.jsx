@@ -4,7 +4,7 @@ import MiniSlider from '../MiniSlider'
 export default function OtherPlates({plates}) {
     return (
         <div className="w-full p-4">
-        <TextHeader text={"Similar Plates"} postion="text-start" />
+        <TextHeader text={"Similar Products"} postion="text-start" />
         <MiniSlider plates={plates}/>
       </div>
     )

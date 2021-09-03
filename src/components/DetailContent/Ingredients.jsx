@@ -12,12 +12,12 @@ export default function Ingredients({ingredients}) {
     let magicArry = []
      for (let i = 0; i <= ingredients.length; i++ ){
         if(i === ingredients.length ){
-            const resultArray = <div className="flex w-full justify-evenly">{[...newArray]}</div>
+            const resultArray = <div className="flex w-full space-x-2  justify-evenly">{[...newArray]}</div>
             magicArry.push(resultArray)  
             newArray = []
         }
         if(i %4 ===0){
-            const resultArray = <div className="flex w-full justify-evenly">{[...newArray]}</div>
+            const resultArray = <div className="flex w-full space-x-2   justify-evenly">{[...newArray]}</div>
             magicArry.push(resultArray)  
         newArray = []
         } 

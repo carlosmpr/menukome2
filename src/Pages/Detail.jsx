@@ -48,9 +48,10 @@ if(!loading){
     <div className="w-full h-4/5  flex-1">
       <div className="w-full  flex-1 space-y-4 ">
         <ImageContent image={detail.image} />
-        <GeneralInfo name={detail.name} price={detail.price} image={detail.image}/>
+        <GeneralInfo name={detail.name} price={detail.price} image={detail.image} desc={detailData.desc}/>
         <Ingredients ingredients={detailData.ingredients.split(",")}/>
-        <SidesDishes sides={detailData.sides.split(';')} drinks={detailData.drinks.split(';')}/>
+        {detailData.sides === "no" ? null : <SidesDishes sides={detailData.sides.split(';')} drinks={detailData.drinks.split(';')}/>  }
+
        <OtherPlates plates={detailData.similar.split(';')}/>
 
         <div className="w-full p-4">

@@ -1,7 +1,7 @@
 import React from "react";
 import TextHeader from "../Text/TextHeader";
 import { useSpring, animated } from 'react-spring'
-export default function GeneralInfo({name, price}) {
+export default function GeneralInfo({name, price, desc}) {
   const props = useSpring({ to: { opacity: 1, x:0 }, from: { opacity: 0 , x:-10},  delay: 500 })
   return (
     <>
@@ -11,10 +11,7 @@ export default function GeneralInfo({name, price}) {
       </div>
       <animated.div className="w-full px-4" style={props}>
         <p className="text-justify">
-          With Menukome, you can transform your menu into a mobile application,
-          and you can highlight your products. It is easy to use and update, and
-          you can increase your sales by showing recommendations to your
-          customers.
+         {desc}
         </p>
       </animated.div>
     </>

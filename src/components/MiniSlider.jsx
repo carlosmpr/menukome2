@@ -19,7 +19,13 @@ export default function MiniSlider({ plates }) {
   const data = () => {
     let newArray = [];
     let magicArry = [];
+
+    if(platesObject.length === 1){
+    const resultArray = [<div className="flex"><MiniSlide {...platesObject[0]}/> </div>]
+      return resultArray
+    } else{
     for (let i = 0; i <= platesObject.length; i++) {
+
       if (i === platesObject.length) {
         const resultArray = <div className="flex">{[...newArray]}</div>;
         magicArry.push(resultArray);
@@ -32,10 +38,13 @@ export default function MiniSlider({ plates }) {
       }
       newArray.push(<MiniSlide {...platesObject[i]} />);
     }
-
+    if(platesObject.length == 2) {
+      magicArry.pop()
+      
+    }
     magicArry.shift();
-    magicArry.pop();
     return magicArry;
+  }
   };
 
   return (

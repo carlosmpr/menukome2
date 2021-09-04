@@ -27,12 +27,12 @@ export default function MiniSlider({ plates }) {
     for (let i = 0; i <= platesObject.length; i++) {
 
       if (i === platesObject.length) {
-        const resultArray = <div className="flex">{[...newArray]}</div>;
+        const resultArray = <div className="flex space-x-2">{[...newArray]}</div>;
         magicArry.push(resultArray);
         newArray = [];
       }
       if (i % 2 === 0) {
-        const resultArray = <div className="flex ">{[...newArray]}</div>;
+        const resultArray = <div className="flex space-x-2">{[...newArray]}</div>;
         magicArry.push(resultArray);
         newArray = [];
       }

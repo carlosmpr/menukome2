@@ -5,9 +5,9 @@ export default function Loading() {
         loop: true,
         to: [
           { opacity: 1, scale:2 },
-          { opacity: 0, scale:1, color: 'rgb(14,26,19)' },
+          { opacity: 0, scale:1, color: 'rgb(14,26,19)'},
         ],
-        from: { opacity: 0, color: 'red' },
+        from: { opacity: 0, color: 'red'},
       })
   return (
     <div className="w-full h-full flex flex-col mt-36 items-center ">

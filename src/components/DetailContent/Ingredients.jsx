@@ -30,7 +30,7 @@ export default function Ingredients({ingredients}) {
  }
     console.log(data())
     return (
-        <animated.div className="w-full px-4" style={props}>
+        <animated.div className="w-full px-4 space-y-4" style={props}>
         <TextHeader text={"Ingredients"} postion="text-start"/>
         <ReactSwipe
               chiclassName="w-full"

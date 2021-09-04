@@ -13,7 +13,7 @@ export default function TodaysSpecial({day}) {
             case 4:
                 return "Thursday"
             case 5:
-                return "Fiday"
+                return "Friday"
             case 6:
                 return "Saturday"
             case 7:

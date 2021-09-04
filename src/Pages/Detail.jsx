@@ -51,8 +51,8 @@ if(!loading){
         <GeneralInfo name={detail.name} price={detail.price} image={detail.image} desc={detailData.desc}/>
         <Ingredients ingredients={detailData.ingredients.split(",")}/>
         {detailData.sides === "no" ? null : <SidesDishes sides={detailData.sides.split(';')} drinks={detailData.drinks.split(';')}/>  }
-
-       <OtherPlates plates={detailData.similar.split(';')}/>
+{detailData.similar === "no" ? null :<OtherPlates plates={detailData.similar.split(';')}/>}
+       
 
         <div className="w-full p-4">
         <InformationCard />

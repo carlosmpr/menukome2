@@ -6,7 +6,7 @@ export default function TopBar() {
     const props = useSpring({ to: { opacity: 1, y:0 }, from: { opacity: 0 , y:-10},  delay: 500 })
     const dispatch = useDispatch()
     return (
-        <animated.div className="w-full h-20 bg-red-400 p-2 flex items-center shadow-md fixed z-50" style={props}>
+        <animated.div className="w-full h-20 bg-red-400 p-2 flex items-center shadow-md fixed z-50 md:max-w-sm" style={props}>
             <div className="flex-1">
             <div className="rounded-full w-16 h-16 bg-white overflow-hidden" onClick={()=>{ 
                 dispatch(detailSelect(''))

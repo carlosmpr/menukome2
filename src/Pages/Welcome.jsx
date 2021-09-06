@@ -34,7 +34,7 @@ export default function Welcome() {
      return <Loading />
    }
 
-console.log(offer)
+
     return (
         <div className="w-full flex-1 space-y-4">
        <TodaysSpecial day={offer.category}/>

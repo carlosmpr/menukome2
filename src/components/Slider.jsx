@@ -44,7 +44,7 @@ export default function Slider({ plates }) {
         >
           {platesObject.map((food, index) => (
             <div>
-              <Slide {...food} platesObject={platesObject} position={index} />
+              <Slide key={`${food.name} ${food.price}`}{...food} platesObject={platesObject} position={index} />
             </div>
           ))}
         </ReactSwipe>

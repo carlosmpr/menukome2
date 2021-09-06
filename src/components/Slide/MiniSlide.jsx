@@ -3,10 +3,10 @@ import MiniFoodCard from "../cards/MiniFoodCard";
 import FoodReaction from "../FoodReactions/FoodReaction";
 import {useDispatch} from 'react-redux'
 import { detailSelect } from "../../features/counter/counterSlice";
-export default function MiniSlide({ w = "w-full", details , name, image, price,likes,recomended }) {
+export default function MiniSlide({ w = "w-full", details , name, image, price,likes,recomended, block }) {
   const dispatch = useDispatch()
   return (
-    <div className={`${w} flex flex-col justify-center items-center `} onClick={()=> dispatch(detailSelect({name:name, price:price, image:image}))}>
+    <div className={`${w} flex flex-col justify-center items-center `} onClick={block ?  ()=>{}:()=> dispatch(detailSelect({name:name, price:price, image:image}))}>
       <MiniFoodCard image={image} />
       {details ? <FoodReaction likes={likes} recomended={recomended}/> : null}
       <p className="font-bold text-sm text-center capitalize">{name}</p>

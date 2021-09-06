@@ -28,7 +28,7 @@ export default function Ingredients({ingredients}) {
      magicArry.shift()
      return magicArry
  }
-    console.log(data())
+
     return (
         <animated.div className="w-full px-4 space-y-4" style={props}>
         <TextHeader text={"Ingredients"} postion="text-start"/>

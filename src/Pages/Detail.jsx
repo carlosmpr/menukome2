@@ -43,7 +43,6 @@ if(!loading){
   }
 
 
-  console.log(detailData.similar)
   return (
     <div className="w-full h-4/5  flex-1">
       <div className="w-full  flex-1 space-y-4 ">
@@ -51,9 +50,8 @@ if(!loading){
         <GeneralInfo name={detail.name} price={detail.price} image={detail.image} desc={detailData.desc}/>
         <Ingredients ingredients={detailData.ingredients.split(",")}/>
         {detailData.sides === "no" ? null : <SidesDishes sides={detailData.sides.split(';')} drinks={detailData.drinks.split(';')}/>  }
-{detailData.similar === "no" ? null :<OtherPlates plates={detailData.similar.split(';')}/>}
-       
-
+{detailData.similar === "no" ? null :<OtherPlates plates={detailData.similar.split(';')} />}
+      
         <div className="w-full p-4">
         <InformationCard />
         </div>

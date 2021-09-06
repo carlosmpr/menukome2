@@ -8,7 +8,7 @@ function App() {
   const detail = useSelector(state=> state.counter.detailsSelected)
   console.log(detail)
   return (
-    <div className="w-screen h-screen bg-background relative" >
+    <div className="w-screen h-screen bg-background relative md:max-w-sm " >
      
      
      { detail !== "" ? <Detail /> : 

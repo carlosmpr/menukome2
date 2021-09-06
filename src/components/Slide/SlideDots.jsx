@@ -19,6 +19,7 @@ export default function SlideDots({dataObject, mini}) {
             <div className="w-full flex items-center justify-center space-x-2 ">
             {dataObject.map((item, i) => (
               <div
+           
                 className={`w-3 h-3 ${
                   i === miniIndex  ? "bg-red-500 " : "bg-gray-500  opacity-10"
                 } rounded-full`}

@@ -46,8 +46,6 @@ export default function MenuInfo() {
   }
 
   const filterData = () => (data.filter( newData => newData.name.toLowerCase().includes(search.toLowerCase())  ))
-   
-  console.log(data)
   return (
         <>
         
@@ -56,7 +54,7 @@ export default function MenuInfo() {
 
         <InfoBanner />
         <animated.div className="w-full flex flex-1 space-y-4 flex-wrap" style={props}>
-          {filterData().map( food => <MiniSlide w={width} details={details} {...food}/>)}           
+          {filterData().map( food => <MiniSlide w={width} details={details} key={food.name } {...food}/>)}           
       </animated.div>
       </>
     )

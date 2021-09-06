@@ -5,7 +5,7 @@ import SlideDots from "./Slide/SlideDots";
 import { useDispatch } from "react-redux";
 import { setMiniSlider } from "../features/counter/counterSlice";
 
-export default function MiniSlider({ plates }) {
+export default function MiniSlider({ plates,block }) {
   const [element, setElement] = useState();
   const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ export default function MiniSlider({ plates }) {
     let magicArry = [];
 
     if(platesObject.length === 1){
-    const resultArray = [<div className="flex"><MiniSlide {...platesObject[0]}/> </div>]
+    const resultArray = [<div className="flex"><MiniSlide {...platesObject[0]} block={block}/> </div>]
       return resultArray
     } else{
     for (let i = 0; i <= platesObject.length; i++) {
@@ -46,6 +46,7 @@ export default function MiniSlider({ plates }) {
     return magicArry;
   }
   };
+
 
   return (
     <>

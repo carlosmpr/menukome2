@@ -11,7 +11,7 @@ export default function Menu() {
     const menuSelected = useSelector(state => state.counter.menuSelected)
     const props = useSpring({ to: { opacity: 1, y:0 }, from: { opacity: 0 , y:10},  delay: 600 })
     return (
-        <animated.div className="w-full h-24 bg-red-400 flex rounded-t-3xl items-center  justify-evenly fixed bottom-0 shadow-2xl" style={props}>
+        <animated.div className="w-full h-24 bg-red-400 flex rounded-t-3xl items-center  justify-evenly fixed bottom-0 shadow-2xl md:max-w-sm" style={props}>
             <MenuItems text={"Main"}>
                 <ForkIcon className="w-10 h-10"  fill={ menuSelected === "Main" ? 'red':' black'}/>
                 </MenuItems>

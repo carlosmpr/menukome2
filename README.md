@@ -1,5 +1,5 @@
 # Menukome 
-A Fully serveless Smart menu for restaurants that highlight main dishes, special of the day, and show recommendations for customers of drinks and side plates to accompany the main dish.
+A Fully serverless Smart menu for restaurants that highlight main dishes, special of the day, and show recommendations for customers of drinks and side plates to accompany the main dish.
 
 Develop with
 1. Created using React/Redux
